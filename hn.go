@@ -8,7 +8,7 @@ import (
 	"time"
 
 	cli "github.com/urfave/cli/v2"
-	"github.com/whyrusleeping/gosky/api"
+	bsky "github.com/whyrusleeping/gosky/api/bsky"
 	cliutil "github.com/whyrusleeping/gosky/cmd/gosky/util"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
@@ -78,18 +78,20 @@ var hnBotCmd = &cli.Command{
 					return err
 				}
 
-				// In the future this will be an embed instead of an entity
-				ent := &api.PostEntity{
-					Index: &api.TextSlice{Start: 0, End: 0},
-					Type:  "link",
-					Value: p.Url,
-				}
-
 				fmt.Printf("posting: %q\n", p.Title)
-				resp, err := atp.RepoCreateRecord(context.TODO(), atp.C.Auth.Did, "app.bsky.feed.post", true, &api.PostRecord{
+				resp, err := atp.RepoCreateRecord(context.TODO(), atp.C.Auth.Did, "app.bsky.feed.post", true, &bsky.FeedPost{
 					Text:      p.Title,
-					CreatedAt: time.Now().Format(time.RFC3339),
-					Entities:  []*api.PostEntity{ent},
+					CreatedAt: time.Now().Format("2006-01-02T15:04:05.000Z"),
+					Embed: &bsky.FeedPost_Embed{
+						EmbedExternal: &bsky.EmbedExternal{
+							External: &bsky.EmbedExternal_External{
+								Description: "",
+								//Thumb         *util.Blob `json:"thumb" cborgen:"thumb"`
+								Title: p.Title,
+								Uri:   p.Url,
+							},
+						},
+					},
 				})
 				if err != nil {
 					return err
