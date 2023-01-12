@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/urfave/cli/v2 v2.23.5
-	github.com/whyrusleeping/gosky v0.0.0-20230107190554-6dce7b46bc24
+	github.com/whyrusleeping/gosky v0.0.0-20230111163552-053f7d4e1bde
 	gorm.io/driver/sqlite v1.4.3
 	gorm.io/gorm v1.24.1
 )
@@ -37,7 +37,7 @@ require (
 	github.com/multiformats/go-varint v0.0.6 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/spaolacci/murmur3 v1.1.0 // indirect
-	github.com/whyrusleeping/cbor-gen v0.0.0-20230106195754-b5f4b36f47e2 // indirect
+	github.com/whyrusleeping/cbor-gen v0.0.0-20230109192608-0173f1e641ac // indirect
 	github.com/whyrusleeping/go-did v0.0.0-20221105001742-8d9e0ffb0d59 // indirect
 	github.com/xrash/smetrics v0.0.0-20201216005158-039620a65673 // indirect
 	go.opentelemetry.io/otel v1.11.2 // indirect
