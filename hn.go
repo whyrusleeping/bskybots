@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"time"
 
+	bsky "github.com/bluesky-social/indigo/api/bsky"
+	cliutil "github.com/bluesky-social/indigo/cmd/gosky/util"
 	cli "github.com/urfave/cli/v2"
-	bsky "github.com/whyrusleeping/gosky/api/bsky"
-	cliutil "github.com/whyrusleeping/gosky/cmd/gosky/util"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )

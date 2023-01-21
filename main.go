@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"os"
 
+	"github.com/bluesky-social/indigo/api"
 	cli "github.com/urfave/cli/v2"
-	"github.com/whyrusleeping/gosky/api"
 )
 
 func main() {
@@ -24,6 +24,7 @@ func main() {
 	}
 	app.Commands = []*cli.Command{
 		hnBotCmd,
+		gptCmd,
 	}
 
 	app.RunAndExitOnError()
